@@ -7,9 +7,9 @@ This is the v.001 compiler of all possible markup languages in the SSG markup la
 ## About diagram
 
 |On Linux:|
------------
+|---------|
 |run ``` bash diag.sh ```|
 
 |On Windows:|
--------------
+|------------|
 |...|
