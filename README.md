@@ -20,3 +20,7 @@ This is the v.001 compiler of all possible markup languages in the SSG markup la
 Project is incredibly simple, the project structure in the diagram will always be in readme.md:
 
 ![Alt Image](HypSsgDiag.drawio.svg)
+
+<!---
+btw, there is always a file in the initial section.draw io with this diagram, you can always tweak it)
+-->
