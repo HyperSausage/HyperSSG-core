@@ -14,3 +14,6 @@ This is the v.001 compiler of all possible markup languages in the SSG markup la
 |On Windows:|
 |:------------:|
 |...|
+
+
+![Alt Image](HypSsgDiag.drawio.svg)
