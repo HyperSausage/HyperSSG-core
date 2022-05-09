@@ -8,7 +8,7 @@ This is the v.001 compiler of all possible markup languages in the SSG markup la
 
 |On Linux:|
 |:---------:|
-|run ``` bash diag.sh ```|
+|run ``` bash rdlx.sh ```|
 
 
 |On Windows:|
