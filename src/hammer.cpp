@@ -2,7 +2,7 @@
 
 class HAMMER{
 	public:
-		void giveFileName(char** argc){}
+		void giveFileName(std :: string argc){}
 		void hSSG(){ std :: cout << "hSSG" << std :: endl; }
 		void jForm(){ std :: cout << "jSSG" << std :: endl; }
 		void xForm(){ std :: cout << "xSSG" << std :: endl; }

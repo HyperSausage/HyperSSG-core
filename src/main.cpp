@@ -3,66 +3,53 @@ Can't figure out how the code works? You are very strange... Read the documentat
 God, the code is written almost for children...
 */
 
-#include "includeQ.h"
+#include "hammer.cpp"
 
-#include <cstring>
+#include "includeQ.h"
 
 class wItA { // what is this argument 
   public:
     wItA() {
       rez = 0;
-      HAMMER * hamm;
-      for (int i = 0; i < 5;)
-        termPhase[i] = const_cast < char * > (list[i].c_str());
     };
-  public:
-    constexpr uint32_t hash(const char * data, size_t
-      const size) noexcept {
-      uint32_t hash = 5381;
-
-      for (const char * c = data; c < data + size; ++c)
-        hash = ((hash << 5) + hash) + (unsigned char) * c;
-
-      return hash;
-    } // This function is needed to compare command-line arguments with args, the fact is that switch does not accept a string, because of this the hash is compared.
-  bool operate(std::string argv) {
-
-    char * argvC = const_cast < char * > (argv.c_str());
+  std::string operate(std::string argv) { // we could use Switch, but we know that it doesn't take on a string, so we didn't want to mess with string hashing and other unnecessary crap.
     if (argv == "./main") {
       return 0;
-    }
-    if (rez > 4) {
+    } if (rez > 3) {
       std::cout <<
         "ERROR_01: too many translation parameters" <<
         std::endl;
       return 0;
-    }
-    switch (hash(argvC)) {
-    case hash(termPhase[0]): // HYPER-COMPRESSION
+    } if (argv == list[0]) { // HYPER-COMPRESSION
       rez++;
       hamm.hSSG();
-      break;
-    case hash(termPhase[1]): // DEFAULT
-      rez++;
-    case hash(termPhase[2]): // JSON
+      Log += argv;
+    } if (argv == list[1]){ // DEFAULT
+	  rez++;
+	  Log += argv;
+    } if (argv == list[2]) { // JSON
       hamm.jForm();
       rez++;
-    case hash(termPhase[3]): // XML
+      Log += argv;
+    } if (argv == list[3]) { // XML
       hamm.xForm();
       rez++;
-    case hash(termPhase[4]): // YAML
+      Log += argv;
+    } if (argv == list[4]) { // YAML
       hamm.yForm();
       rez++;
-    default: // DEFAULT
+      Log += argv;
+    } else { // DEFAULT
       rez++;
-      if (argv != "-d") {
+      if (argv != list[1]) {
         hamm.giveFileName(argv);
       }
-      break;
     }
+    return Log;
   }
   private:
-    int rez;
+    HAMMER hamm;
+  int rez;
   char * termPhase[5];
   std::string list[5] = {
     "-h",
@@ -71,6 +58,7 @@ class wItA { // what is this argument
     "-x",
     "-y"
   };
+  std::string Log;
   std::string rezArgc[2];
 };
 
