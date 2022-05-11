@@ -68,11 +68,11 @@ class wItA { // what is this argument
   std :: string getFalse;
   std::string Log;
   std::string list[5] = {
-    "-h",
-    "-d",
-    "-j",
-    "-x",
-    "-y"
+    "-h", // [0]
+    "-d", // [1]
+    "-j", // [2]
+    "-x", // [3]
+    "-y"  // [4]
   };
   std::string rezArgc[2];
 };
