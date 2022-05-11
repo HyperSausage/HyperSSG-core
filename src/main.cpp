@@ -59,12 +59,14 @@ class wItA { // what is this argument
 
     return Log;
   }
-
+  std :: string getLogRezult(){
+	  return hammer.LogOut();
+  }
   private:
-    HAMMER hammer;
+  HAMMERinstruct hammer;
   int rez;
+  std :: string getFalse;
   std::string Log;
-  char * termPhase[5];
   std::string list[5] = {
     "-h",
     "-d",
@@ -72,7 +74,6 @@ class wItA { // what is this argument
     "-x",
     "-y"
   };
-
   std::string rezArgc[2];
 };
 int main(int argc, char ** argv) {
@@ -81,5 +82,6 @@ int main(int argc, char ** argv) {
     if (argv[i] != * argv)
       checkP.operate(argv[i]);
   }
-
+  std :: cout << checkP.getLogRezult();
+  
 }

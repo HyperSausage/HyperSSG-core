@@ -1,21 +1,35 @@
 #include "includeQ.h"
 
-class HAMMER {
+class HAMMER{};
+
+class HAMMERinstruct {
   public:
-    HAMMER() {};
+  HAMMERinstruct(){
+	  LogRezult = "";
+  };
   void giveFileName(std::string argc) {
-    std::cout << argc;
+    LogRezult += "_";
+	LogRezult += argc;
+	LogRezult += "_";
   }
   void hSSG() {
-    std::cout << "hSSG";
+    LogRezult += "hSSG";
   }
   void jForm() {
-    std::cout << "jSSG";
+    LogRezult += "jSSG";
   }
   void xForm() {
-    std::cout << "xSSG";
+    LogRezult += "xSSG";
   }
   void yForm() {
-    std::cout << "yForm";
+    LogRezult += "ySSG";
   }
+  std :: string LogOut() {
+	std :: cout << "LOG: " << LogRezult <<
+	"- SUCCEED! :)" << std :: endl;
+	return "";
+  }
+  private:
+  std :: string LogRezult;
+  std :: string getFalse;
 };

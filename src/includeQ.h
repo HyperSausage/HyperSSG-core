@@ -9,4 +9,6 @@
 
 class wItA;
 
+class HAMMERinstruct;
+
 class HAMMER;
