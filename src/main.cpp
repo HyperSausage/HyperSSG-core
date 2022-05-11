@@ -22,33 +22,32 @@ class wItA { // what is this argument
       return 0;
     } if (argv == list[0]) { // HYPER-COMPRESSION
       rez++;
-      hamm.hSSG();
+      HAMMER::hSSG();
       Log += argv;
     } if (argv == list[1]){ // DEFAULT
 	  rez++;
 	  Log += argv;
     } if (argv == list[2]) { // JSON
-      hamm.jForm();
+      HAMMER::jForm();
       rez++;
       Log += argv;
     } if (argv == list[3]) { // XML
-      hamm.xForm();
+      HAMMER::xForm();
       rez++;
       Log += argv;
     } if (argv == list[4]) { // YAML
-      hamm.yForm();
+      HAMMER::yForm();
       rez++;
       Log += argv;
     } else { // DEFAULT
       rez++;
       if (argv != list[1]) {
-        hamm.giveFileName(argv);
+        HAMMER::giveFileName(argv);
       }
     }
     return Log;
   }
   private:
-    HAMMER hamm;
   int rez;
   char * termPhase[5];
   std::string list[5] = {
