@@ -13,42 +13,57 @@ class wItA { // what is this argument
       rez = 0;
     };
   std::string operate(std::string argv) { // we could use Switch, but we know that it doesn't take on a string, so we didn't want to mess with string hashing and other unnecessary crap.
-    if (argv == "./main") {
-      return 0;
-    } if (rez > 3) {
-      std::cout <<
-        "ERROR_01: too many translation parameters" <<
-        std::endl;
-      return 0;
-    } if (argv == list[0]) { // HYPER-COMPRESSION
-      rez++;
-      HAMMER::hSSG();
-      Log += argv;
-    } if (argv == list[1]){ // DEFAULT
-	  rez++;
-	  Log += argv;
-    } if (argv == list[2]) { // JSON
-      HAMMER::jForm();
-      rez++;
-      Log += argv;
-    } if (argv == list[3]) { // XML
-      HAMMER::xForm();
-      rez++;
-      Log += argv;
-    } if (argv == list[4]) { // YAML
-      HAMMER::yForm();
-      rez++;
-      Log += argv;
-    } else { // DEFAULT
-      rez++;
-      if (argv != list[1]) {
-        HAMMER::giveFileName(argv);
+    switch (rez) {
+    case 0:
+      if (argv == list[1]) { // DEFAULT
+        rez += 1;
+        Log += argv;
       }
+      if (argv == list[2]) { // JSON
+        rez += 1;
+        hammer.jForm();
+        Log += argv;
+      }
+      if (argv == list[3]) { // XML
+        rez += 1;
+        hammer.xForm();
+        Log += argv;
+      }
+      if (argv == list[4]) { // YAML
+        rez += 1;
+        hammer.yForm();
+        Log += argv;
+      }
+      break;
+    case 1:
+      if (argv == list[1] ||
+        argv == list[2] ||
+        argv == list[3] ||
+        argv == list[4]) {
+        std::cout <<
+          "ERROR_01: too many translation parameters" << std::endl <<
+          "Only one parameter is allowed: -j/-x/-y/-d" << std::endl;
+        return 0;
+      }
+      if (argv == list[0]) { // HYPER-COMPRESSION
+        hammer.hSSG();
+        Log += argv;
+      } else { // DEFAULT
+        if (argv != list[1]) {
+          hammer.giveFileName(argv);
+          Log += argv;
+        }
+      }
+      break;
     }
+
     return Log;
   }
+
   private:
+    HAMMER hammer;
   int rez;
+  std::string Log;
   char * termPhase[5];
   std::string list[5] = {
     "-h",
@@ -57,13 +72,14 @@ class wItA { // what is this argument
     "-x",
     "-y"
   };
-  std::string Log;
+
   std::string rezArgc[2];
 };
-
 int main(int argc, char ** argv) {
   wItA checkP; // check parameter
   for (int i = 0; i < argc; i++) {
-    checkP.operate(argv[i]);
+    if (argv[i] != * argv)
+      checkP.operate(argv[i]);
   }
+
 }
