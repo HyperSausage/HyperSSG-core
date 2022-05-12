@@ -7,8 +7,6 @@ God, the code is written almost for children...
 
 #include "../headers/includeQ.h"
 
-
-
 class wItA { // what is this argument 
   public:
     wItA() {
