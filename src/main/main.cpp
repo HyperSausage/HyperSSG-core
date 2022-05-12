@@ -3,9 +3,11 @@ Can't figure out how the code works? You are very strange... Read the documentat
 God, the code is written almost for children...
 */
 
-#include "hammer.cpp"
+#include "../convert/hammer.cpp"
 
-#include "includeQ.h"
+#include "../headers/includeQ.h"
+
+
 
 class wItA { // what is this argument 
   public:
